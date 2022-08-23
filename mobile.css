@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
 }
 .container {
-  width: 100%;
+  width: calc(100% - 8px);
   height: 100vh;
   background-image: linear-gradient(
     var(--color1),
@@ -16,16 +16,70 @@ body {
     var(--color3)
   );
   border-radius: 24px;
+  border: 4px solid black;
 }
 
 .avartar img {
   width: 150px;
   height: 150px;
+  margin-top: 32px;
   border: 4px solid #fff;
   border-radius: 50%;
+  animation: avt 0.8s ease-out;
+  position: relative;
+}
+.name {
+  width: 120px;
+  height: 28px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  position: absolute;
+  border-radius: 8px;
+}
+.name::before {
+  content: "";
+  width: 120px;
+  height: 12px;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  position: absolute;
+}
+
+.box1 {
+  width: 32px;
+  height: 8px;
+  top: 50%;
+  left: 40%;
+  background-color: rgb(5, 19, 59);
+  border: 0.3px solid #fff;
+  position: absolute;
+  border-radius: 4px;
+}
+.box2 {
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  left: 80%;
+  background-color: rgb(5, 19, 59);
+  border: 0.3px solid #fff;
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes avt {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 .avartar img:hover {
-  margin-top: 0;
+  margin-top: 32px;
   width: 150px;
   height: 150px;
   border: 4px solid #fff;
@@ -44,6 +98,7 @@ body {
   margin-top: 32px;
   margin-left: 24px;
   color: rgb(45, 45, 211);
+  animation: slice 0.5s ease-in;
 }
 .icon2 {
   width: 32px;
@@ -51,17 +106,28 @@ body {
   display: inline;
   margin-top: 24px;
   margin-left: 24px;
+  animation: slice 0.8s ease-in;
+}
+
+@keyframes slice {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .info ul {
+  width: 150px;
   font-size: 24px;
   font-weight: bold;
   list-style: none;
-  margin-left: 45%;
+  margin-left: 50%;
+  transform: translateX(-55%);
 }
 
 .hl {
-  margin-top: 24px;
   display: flex;
   justify-content: space-around;
 }
@@ -75,4 +141,63 @@ body {
   text-decoration: none;
   border-radius: 4px;
   box-shadow: 2px 2px 4px rgb(39, 37, 37);
+  animation: color 0.8s infinite linear;
+}
+@keyframes color {
+  0% {
+    background-color: var(--color1);
+  }
+  100% {
+    background-color: var(--color3);
+  }
+}
+
+.grid {
+  width: 332px;
+  height: 200px;
+  margin: 0 auto;
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px;
+  gap: 12px;
+}
+
+.grid1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  border-radius: 4px;
+}
+
+.grid2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.grid3 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.grid4 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+.grid5 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+.grid6 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.grid1 img,
+.grid2 img,
+.grid3 img,
+.grid4 img,
+.grid5 img,
+.grid6 img {
+  border: solid #fff;
+  border-radius: 8px;
 }
